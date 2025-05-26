@@ -17,7 +17,7 @@ SMODS.Joker{
         if context.before and not context.blueprint and next(context.poker_hands['Three of a Kind']) then
             card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmult_mod
             return {
-                message = message = localize('k_upgrade_ex'),
+                message = localize('k_upgrade_ex'),
         colour = G.C.MULT
             }
         elseif context.joker_main then

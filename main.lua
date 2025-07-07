@@ -67,6 +67,51 @@ function Game:start_run(args)
         G.GAME.ROFF_seance_used = false
         G.GAME.ROFF_blanks_obtained = 0
         G.GAME.ROFF_vouchers_sliced_list = {}
+        if G.GAME.selected_back and G.GAME.selected_back.effect.center.key == "b_roff_highscoring" and SMODS.Mods.Roffle.config.highscoring.randomise then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_card {
+                        set = 'Joker',
+                        rarity = 'Common',
+                        key_append = 'roff_highscoring'
+                    }
+                    SMODS.add_card {
+                        set = 'Joker',
+                        rarity = 'Uncommon',
+                        key_append = 'roff_highscoring'
+                    }
+                    SMODS.add_card {
+                        set = 'Joker',
+                        rarity = 'Rare',
+                        key_append = 'roff_highscoring'
+                    }
+                    return true
+                end
+            }))
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.Mods.Roffle.config.highscoring.jokers = {}
+                    for i=1, #G.jokers.cards do
+                        table.insert(SMODS.Mods.Roffle.config.highscoring.jokers, G.jokers.cards[i].config.center.key)
+                    end
+                    return true
+                end
+            }))
+            G.GAME.win_ante = 12
+            SMODS.Mods.Roffle.config.highscoring.randomise = false
+        elseif G.GAME.selected_back and G.GAME.selected_back.effect.center.key == "b_roff_highscoring" then
+            for jkey = 1, #SMODS.Mods.Roffle.config.highscoring.jokers do
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        SMODS.add_card {
+                            key = SMODS.Mods.Roffle.config.highscoring.jokers[jkey],
+                            key_append = 'roff_highscoring'
+                        }
+                        return true
+                    end
+                }))
+            end
+        end
         if args.challenge then
             local _ch = args.challenge
             G.GAME.challenge_index = args.challenge

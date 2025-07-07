@@ -489,6 +489,17 @@ return {
                 "{E:1,C:inactive,s:0.8}(Is this run seeded?)",
             },
         },
+        b_roff_highscoring = {
+            name = "High Scoring Deck",
+            text = {
+                "Start with a {C:common}Common{},",
+                "{C:uncommon}Uncommon{}, and {C:rare}Rare{} Joker",
+                "{C:red}Winning ante is Ante 12",
+                "{E:1,C:inactive,s:0.8}Welcome back to another high-scoring run...",
+                "{C:inactive,s:0.7}By the way, win Ante 1 to reset the jokers.",
+                "{C:inactive,s:0.6}Some of you can't have fun..."
+            },
+        },
     },
     Mod = 
     {

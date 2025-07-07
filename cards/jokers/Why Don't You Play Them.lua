@@ -5,7 +5,7 @@ SMODS.Joker {
    rarity = 3,
    cost = 10,
    blueprint_compat = true,
-   config = { extra = { mult = 5 } },
+   config = { extra = { mult = 2 } },
    loc_vars = function(self, info_queue, card)
       info_queue[#info_queue+1] = {key = 'roff_favorite', set = 'Other'}
       return { vars = { card.ability.extra.mult } }

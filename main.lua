@@ -60,6 +60,16 @@ function Game:init_game_object()
     return ret
 end
 
+-- DVD calc
+local prp = SMODS.pseudorandom_probability
+function SMODS.pseudorandom_probability(trigger_obj, seed, base_numerator, base_denominator)
+    local ret = prp(trigger_obj, seed, base_numerator, base_denominator)
+    if not ret then
+        SMODS.calculate_context({roff_probability_missed = true}, effects)
+    end
+    return ret
+end
+
 local start_run_ref = Game.start_run
 function Game:start_run(args)
     local begin = start_run_ref(self, args)

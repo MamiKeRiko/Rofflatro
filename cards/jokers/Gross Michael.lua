@@ -97,6 +97,9 @@ SMODS.Joker{
             local Michaels = SMODS.find_card('j_gros_michel',true)
             card.ability.extra.Xmult = card.ability.extra.Xmult + (card.ability.extra.Xmult_mod * #Michaels)
             card.ability.extra.do_gross_calc = false
+            return {
+                message = localize('k_upgrade_ex')
+            }
         elseif context.joker_main then
             return {
                 Xmult = card.ability.extra.Xmult

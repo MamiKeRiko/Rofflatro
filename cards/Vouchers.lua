@@ -55,7 +55,7 @@ SMODS.Voucher {
       end
    end,
    in_pool = function(self, args)
-      local list = G.P_CENTER_POOLS.Voucher
+      local list = ROFF.funcs.table_shallow_copy(G.P_CENTER_POOLS.Voucher)
       for i = 1, #list do
          if G.GAME.used_vouchers[list[i].key] or list[i].key == 'v_roff_blanket' then
             list[i] = true
@@ -106,12 +106,20 @@ SMODS.Booster:take_ownership_by_kind('Standard', {
                pool[#pool + 1] = G.playing_cards[j]
             end
          end
-         playing = copy_card(pseudorandom_element(pool, pseudoseed('roff_favorite')), nil)
+         if #pool > 0 then 
+            playing = copy_card(pseudorandom_element(pool, pseudoseed('roff_favorite')), nil)
+         else
+            playing = create_card((pseudorandom(pseudoseed('stdset'..G.GAME.round_resets.ante)) > 0.6) and "Enhanced" or "Base", G.pack_cards, nil, nil, nil, true, nil, 'sta')
+            playing:set_edition(poll_edition('standard_edition'..G.GAME.round_resets.ante, 2, true))
+            if pseudorandom(pseudoseed('seal')) > 0.8 then
+               card:set_seal(SMODS.poll_seal({ guaranteed = true, type_key = 'sta' }))
+            end
+         end
       else
          playing = create_card((pseudorandom(pseudoseed('stdset'..G.GAME.round_resets.ante)) > 0.6) and "Enhanced" or "Base", G.pack_cards, nil, nil, nil, true, nil, 'sta')
          playing:set_edition(poll_edition('standard_edition'..G.GAME.round_resets.ante, 2, true))
          if pseudorandom(pseudoseed('seal')) > 0.8 then
-         card:set_seal(SMODS.poll_seal({ guaranteed = true, type_key = 'sta' }))
+            card:set_seal(SMODS.poll_seal({ guaranteed = true, type_key = 'sta' }))
          end
       end
       return playing

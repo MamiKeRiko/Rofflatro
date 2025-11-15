@@ -265,6 +265,18 @@ ROFF = {
         marquee = function (text)
             local marqueedtext = text:sub(2, #text)..text:sub(1,1)
             return marqueedtext
+        end,
+
+        
+        ---Copies the context of the table `t` non-recursively into a new table.
+        ---@param t table
+        ---@return table
+        table_shallow_copy = function (t)
+            local t2 = {}
+            for k,v in pairs(t) do
+                t2[k] = v
+            end
+            return t2
         end
     },
 }

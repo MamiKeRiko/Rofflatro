@@ -138,6 +138,7 @@ end
 
 function SMODS.current_mod.reset_game_globals(run_start)
     if not run_start and G.playing_cards then
+        G.GAME.current_round.most_played_card_amount = 0
         for _, c in pairs(G.playing_cards) do
             if c.base.times_played > G.GAME.current_round.most_played_card_amount then
                 G.GAME.current_round.most_played_card_amount = c.base.times_played

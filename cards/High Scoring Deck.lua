@@ -10,10 +10,6 @@ SMODS.Back({
             SMODS.Mods.Roffle.config.highscoring.randomise = true
         end
 
-        -- if G.STATE == G.STATES.NEW_ROUND and G.GAME.round_resets.ante == 1 then
-        --     G.GAME.win_ante = 12
-        -- end
-
     end,
     unlock_condition = {type = 'win_deck', deck = 'b_red'}
 })

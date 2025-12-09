@@ -447,7 +447,8 @@ return {
                 name = "Info Card",
                 text = {
                     "{C:chips}+#2#{} chips for every",
-                    "{C:attention}Joker{} added to deck",
+                    "{C:attention}Joker{} or {C:attention}Consumable{}",
+                    "card obtained",
                     "{C:inactive}(Currently {C:chips}+#1# {C:inactive}chips)",
                     '{C:inactive,s:0.8,E:2}Everybody say "Thank you, Edalo"!',
                 }

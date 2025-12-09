@@ -8,14 +8,14 @@ SMODS.Joker{
 	soul_pos = { x = 0, y = 10 },
 	config = { extra = {
 			chips = 0,
-			chip_gain = 15
+			chip_gain = 2
 		}
 	},
 	loc_vars = function(self,info_queue,card)
 		return {vars = {card.ability.extra.chips, card.ability.extra.chip_gain}}
 	end,
 	calculate = function(self,card,context)
-		if context.card_added and context.cardarea == G.jokers and not context.blueprint then
+		if context.card_added and not context.blueprint then
 			card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_gain
 			return {
 				message = localize('k_upgrade_ex')

@@ -158,6 +158,16 @@ function SMODS.current_mod.reset_game_globals(run_start)
         G.GAME.ROFF_seance_used = false
         G.GAME.ROFF_blanks_obtained = 0
         G.GAME.ROFF_vouchers_sliced_list = {}
+
+        if G.GAME.selected_back and G.GAME.selected_back.effect.center.key == "b_roff_highscoring" then
+            G.E_MANAGER:add_event(Event({
+                    func = function()
+                        G.GAME.win_ante = 12
+                        return true
+                    end
+                }))
+        end
+        
         if G.GAME.selected_back and G.GAME.selected_back.effect.center.key == "b_roff_highscoring" and SMODS.Mods.Roffle.config.highscoring.randomise then
             G.E_MANAGER:add_event(Event({
                 func = function()

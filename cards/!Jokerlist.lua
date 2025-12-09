@@ -31,19 +31,13 @@ local joker_list = {
     'Sevens Suck',
     'Speculative Oops',
     'Just Get Chips',
-    -- 'It Aint My Grave',
     'Nice',
-    -- 'Nancy',
-    -- 'Rock Hard',
     'Draw the Diamonds',
     'Where Faces',
     'Free Negatives',
-    -- 'Spaceman',
     'Cat Ears',
     'Moral Support',
     'Always Clam',
-    -- 'Getting Lucky',
-    -- 'Check Him PC',
     'Cat Food',
     'Excommunication',
     'Engagement',
@@ -51,6 +45,7 @@ local joker_list = {
     'Magic 8 Ball',
     'Why Don\'t You Play Them',
     'Water Gun',
+    'Info Card',
 }
 -- load all individual jokers
 for _, key in ipairs(joker_list) do

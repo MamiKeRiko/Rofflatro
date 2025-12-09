@@ -442,7 +442,16 @@ return {
                     "with {C:attention}Favorite{} sticker",
                     '{C:inactive,s:0.8,E:2}Watch out, they\'re coming!',
                 }
-            }
+            },
+            j_roff_infocard = {
+                name = "Info Card",
+                text = {
+                    "{C:chips}+#2#{} chips for every",
+                    "{C:attention}Joker{} added to deck",
+                    "{C:inactive}(Currently {C:chips}+#1# {C:inactive}chips)",
+                    '{C:inactive,s:0.8,E:2}Everybody say "Thank you, Edalo"!',
+                }
+            },
         },
         Voucher = {
             v_roff_coupon = {

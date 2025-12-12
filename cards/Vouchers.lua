@@ -47,9 +47,9 @@ SMODS.Voucher {
       return { vars = { card.ability.extra.Xmult } }
    end,
    calculate = function(self, card, context)
-      if context.post_joker then
+      if context.joker_main then
          return {
-            xmult_mod = card.ability.extra.Xmult ^ G.GAME.ROFF_blanks_obtained,
+            Xmult_mod = card.ability.extra.Xmult ^ G.GAME.ROFF_blanks_obtained,
             sound = 'multhit2'
          }
       end
